@@ -5,22 +5,19 @@ const Howler = require('howler');
 let ocean = new Howler.Howl({
 
     src: ['sounds/ocean.mp3'],
-    loop: true,
-    html5: true
+    loop: true
 })
 
 let park = new Howler.Howl({
 
     src: ['sounds/park.mp3'],
-    loop: true,
-    html5: true
+    loop: true
 })
 
 let rain = new Howler.Howl({
 
     src: ['sounds/rain.ogg'],
-    loop: true,
-    html5: true
+    loop: true
 })
 
 const range1 = document.getElementById('sound1');
