@@ -1,7 +1,7 @@
 <template>
-    <section>
+    <div>
         <Sound v-for="sound in sounds" :sound="sound"></Sound>
-    </section>
+    </div>
 </template>
 
 <script>
@@ -10,25 +10,24 @@
 
     export default {
 
-        created() {
-
-        },
-
-
         data() {
 
             return {
 
+                name: 'sounds',
                 sounds: [
                     {
+                        name: 'Ocean',
                         label: 'Ocean',
                         url: 'ocean.mp3'
                     },
                     {
+                        name: 'Park',
                         label: 'Park',
                         url: 'park.mp3'
                     },
                     {
+                        name: 'Rain',
                         label: 'Rain',
                         url: 'rain.mp3'
                     }
@@ -49,8 +48,6 @@
 
     section {
 
-        flex: 1 1 auto;
-        position: relative;
-        overflow-y: auto;
+
     }
 </style>

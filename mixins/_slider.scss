@@ -1,0 +1,48 @@
+@mixin slider {
+
+    margin: 8px 0 6px;
+    position: relative;
+    background-color: #9aa4ad;
+    height: 6px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.2);
+
+    &__handle {
+
+        box-shadow: inset 0px 0px 0px 1px #cfcfcf;
+        background: #fff;
+        display: block;
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        border-radius: 50%;
+
+        &:after {
+
+            content: "";
+            display: inline-block;
+            border-radius: 50%;
+            background-color: #9ba4ad;
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__fill {
+
+        border-radius: 10px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        background: #388df8;
+    }
+}

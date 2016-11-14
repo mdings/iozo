@@ -1,0 +1,33 @@
+@mixin track {
+
+    position: relative;
+    padding: 8px 8px 9px;
+    border-bottom: 1px solid #e5e5e5;
+
+    &.inactive::after {
+
+        display: block;
+        content: '';
+        position: absolute;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background:rgba(255,255,255,.75);
+    }
+
+    &:hover {
+
+        background-image: linear-gradient(to right, #f9f9fa, #f1f8fc)
+    }
+
+    &__label {
+
+        /*background-color: #e5e5e5;*/
+        display: inline-block;
+        font-size: 12px;
+        border-radius: 4px;
+        color: #555;
+    }
+}

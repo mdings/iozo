@@ -1,7 +1,7 @@
 <template>
     <main>
         <TopBar></TopBar>
-        <Sounds></Sounds>
+        <Controller></Controller>
         <BottomBar></BottomBar>
     </main>
 </template>
@@ -9,7 +9,7 @@
 <script>
 
     import TopBar from './TopBar.vue'
-    import Sounds from './Sounds.vue'
+    import Controller from './Controller.vue'
     import BottomBar from './BottomBar.vue'
 
     export default {
@@ -17,7 +17,7 @@
         components: {
 
             TopBar,
-            Sounds,
+            Controller,
             BottomBar
         }
 
