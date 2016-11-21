@@ -3,7 +3,6 @@
         <Sounds v-show="active === 'sounds'"></Sounds>
         <Effects v-show="active === 'effects'"></Effects>
         <Presets v-show="active === 'presets'"></Presets>
-        <Settings v-show="active === 'settings'"></Settings>
     </div>
 </template>
 
@@ -12,7 +11,6 @@
     import Sounds from './Sounds.vue'
     import Effects from './Effects.vue'
     import Presets from './Presets.vue'
-    import Settings from './Settings.vue'
 
     export default {
 
@@ -38,7 +36,6 @@
             Sounds,
             Effects,
             Presets,
-            Settings
         }
     }
 
@@ -50,6 +47,7 @@
 
         flex: 1 1 auto;
         position: relative;
+        height: 100%;
         overflow-y: auto;
     }
 </style>

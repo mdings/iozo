@@ -3,6 +3,7 @@
         <TopBar></TopBar>
         <Controller></Controller>
         <BottomBar></BottomBar>
+        <Settings></Settings>
     </main>
 </template>
 
@@ -11,6 +12,7 @@
     import TopBar from './TopBar.vue'
     import Controller from './Controller.vue'
     import BottomBar from './BottomBar.vue'
+    import Settings from './Settings.vue'
 
     export default {
 
@@ -18,7 +20,8 @@
 
             TopBar,
             Controller,
-            BottomBar
+            BottomBar,
+            Settings
         }
 
     }
@@ -26,7 +29,7 @@
 </script>
 
 <style>
-    
+
     *,
     *:before,
     *:after {
@@ -44,7 +47,7 @@
         font-family: system,-apple-system,".SFNSDisplay-Regular","Helvetica Neue",Helvetica,"Segoe UI",sans-serif;
     }
 
-    body, 
+    body,
     #app,
     main {
 

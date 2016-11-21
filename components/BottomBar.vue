@@ -19,10 +19,6 @@
 
         created() {
 
-            this.$parent.$on('control', (panel) => {
-
-                this.active = null
-            })
         },
 
 
@@ -49,6 +45,7 @@
         flex: 0 0 auto;
         display: flex;
         justify-content: center;
+        z-index: 9;
     }
 
     button {
