@@ -1,8 +1,9 @@
 <template>
     <div>
         <Preset v-for="preset in presets" :preset="preset"></Preset>
-        <button @click="savePreset">Save new preset</button>
-        <button @click="clearPresets">Clear presets</button>
+       
+        <button @click="savePreset" class="preset__clear">save presets</button>
+        <button @click="clearPresets" class="preset__clear">Clear presets</button>
     </div>
 </template>
 
@@ -24,14 +25,21 @@
 
         methods: {
 
+            renamePreset() {
+
+            },
+
+
             savePreset() {
 
                 const ranges = document.querySelectorAll('[data-preset]')
                 const preset = {}
+                preset.sliders = {}
 
+                // get the values from the range sliders
                 ranges.forEach((range) => {
 
-                    preset[range.id] = {
+                    preset['sliders'][range.id] = {
 
                         value: range.value,
                         isEnabled: !range.hasAttribute('data-is-disabled')
@@ -67,6 +75,18 @@
 
         created() {
 
+            this.$root.$on('update-preset', (preset) => {
+
+                let record = this.presets.find((p) => {
+
+                    return preset === p
+                })
+
+                record = preset
+                storage.set('presets', this.presets)
+
+            })
+
             // Load the data
             storage.get('presets', (err, presets) => {
 
@@ -76,6 +96,7 @@
 
                     presets.forEach((preset) => {
 
+                        console.log(preset)
                         this.presets.push(preset)
                     })
                 }
@@ -86,5 +107,15 @@
 
 <style lang="sass">
 
+    .preset__new {
+
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .preset__clear {
+
+        /*display: none;*/
+    }
 
 </style>

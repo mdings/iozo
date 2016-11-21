@@ -10,6 +10,7 @@ const mb = menubar({
   width: 476,
   preloadWindow: true,
   webPreferences: {
+      scrollBounce: true,
       backgroundThrottling: false
   }
   

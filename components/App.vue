@@ -36,6 +36,7 @@
         outline: none;
         box-sizing: border-box;
         -webkit-user-select: none;
+        cursor: default;
     }
 
     body {

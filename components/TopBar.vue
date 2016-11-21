@@ -13,11 +13,17 @@
 
     export default {
 
+        created() {
+
+            this.toggleVolume()
+        },
+        
         data() {
 
             return {
 
                 isMuted: false
+
             }
         },
 
