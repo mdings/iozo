@@ -1,7 +1,7 @@
 <template>
     <div class="sound" v-on:click="toggleSound" v-bind:class="{inactive:!isEnabled}">
         <span class="sound__label">{{sound.label}}</span>
-        <input type="range" v-on:input="setVolume" v-on:change="changeVolume" v-bind:id="sound.name" data-preset>
+        <input type="range" v-bind:id="sound.name" data-preset @change="changeVolume">
     </div>
 </template>
 
@@ -54,11 +54,12 @@
 
         methods: {
 
-            setVolume(e) {
+            slide(pos, val) {
 
+                if (this.isEnabled) {
 
-                this.track.volume(e.target.value/100)
-
+                    this.track.volume(val)
+                }
             },
 
             changeVolume(e) {

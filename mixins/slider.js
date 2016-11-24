@@ -17,7 +17,7 @@ const slider = {
         this.$watch('isEnabled', () => {
 
             if (this.isEnabled === false) {
-
+                
                 this.elm.setAttribute('data-is-disabled', true)
 
             } else {
@@ -40,8 +40,11 @@ const slider = {
                 // room for options here
                 rangeClass: `${baseClass}`,
                 fillClass: `${baseClass}__fill`,
-                handleClass: `${baseClass}__handle`
+                handleClass: `${baseClass}__handle`,
+                onSlide: (pos, val) => {
 
+                    this.slide(pos, val)
+                }
             })
 
             // listen to specific updates for this slider

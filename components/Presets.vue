@@ -109,7 +109,6 @@
 
                     presets.forEach((preset) => {
 
-                        console.log(preset)
                         this.presets.push(preset)
                     })
                 }

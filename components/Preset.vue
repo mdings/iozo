@@ -60,7 +60,6 @@
 
                 if (event.which == 13) {
 
-                    console.log(event.target.value)
                     this.preset.label = event.target.value
                     this.$root.$emit('update-preset', this.preset)
                     this.isEditable = false
@@ -73,9 +72,11 @@
                 if (this.isEditable) this.isEditable = false
 
                 const sliders = this.preset.sliders
+
                 Object.keys(sliders).forEach((preset) => {
 
                     const range = document.getElementById(preset)
+
                     this.$root.$emit(`update-slider-${range.id}`, sliders[preset])
                 })
             }

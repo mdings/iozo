@@ -6,7 +6,6 @@ Howler.Howler.autoSuspend = false;
 
 const mb = menubar({
   // transparent: true,
-  y: 0,
   width: 476,
   preloadWindow: true,
   webPreferences: {
