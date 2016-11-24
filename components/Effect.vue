@@ -42,6 +42,10 @@
 
             },
 
+            fadeto() {
+
+            },
+
             changeAmount() {
 
 
