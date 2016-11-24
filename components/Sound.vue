@@ -39,10 +39,12 @@
 
                 const slider = this.$el.querySelector('input[type="range"]')
 
+                console.log(slider.value)
+
                 if(this.isEnabled === false) {
 
                     // fade the volume out
-                    this.track.fade(slider.value/100, 0, 600)
+                    this.track.fade(this.track.volume(), 0, 600)
 
                 } else {
 
