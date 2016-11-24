@@ -1,7 +1,7 @@
 <template>
     <div  @mousedown="startRename" @mouseup="endRename" class="preset">
         <input class="preset__label" :value="label" @keyup="updatePreset" v-bind:disabled="isEditable === false"></input>
-        <a class="preset__save">save</a>
+        <a class="preset__update">update</a>
     </div>
 </template>
 
@@ -60,6 +60,7 @@
 
                 if (event.which == 13) {
 
+                    console.log(event.target.value)
                     this.preset.label = event.target.value
                     this.$root.$emit('update-preset', this.preset)
                     this.isEditable = false
@@ -94,7 +95,7 @@
 
         &:hover {
 
-            .preset__save {
+            .preset__update {
 
                 opacity: 1;
             }
@@ -105,6 +106,7 @@
 
         display: block;
         padding-right: 40px;
+        line-height: 30px;
         width: 100%;
         font-size: 14px;
         color: #555;
@@ -119,7 +121,7 @@
         }
     }
 
-    .preset__save {
+    .preset__update {
 
         line-height: 1;
         opacity: 0;

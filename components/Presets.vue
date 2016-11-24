@@ -1,10 +1,22 @@
 <template>
     <div>
-        <Preset v-for="preset in presets" :preset="preset"></Preset>
-       
-        <button @click="savePreset" class="preset__clear">save presets</button>
-        <button @click="clearPresets" class="preset__clear">Clear presets</button>
+
+        <div v-show="presets.length">
+            <Preset v-for="preset in presets" :preset="preset"></Preset>
+            <a href="javascript:void(0)" @click="addPreset" class="preset__add">New preset</button>
+            <a href="javascript:void(0)" @click="clearPresets" class="preset__add">Clear presets</button>
+        </div>
+
+        <div class="presets__default" v-show="!presets.length">
+            <svg class="icon__preset">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-preset"></use>
+            </svg>
+            <div>There are no presets yet. <a href="javascript:void(0)" @click="addPreset">Let's create the first one</a></div>
+        </div>
+
     </div>
+
+
 </template>
 
 <script>
@@ -30,11 +42,12 @@
             },
 
 
-            savePreset() {
+            addPreset() {
 
                 const ranges = document.querySelectorAll('[data-preset]')
                 const preset = {}
                 preset.sliders = {}
+                preset.label = 'Untitled'
 
                 // get the values from the range sliders
                 ranges.forEach((range) => {
@@ -107,15 +120,47 @@
 
 <style lang="sass">
 
-    .preset__new {
+    .preset__add {
 
-        padding: 8px;
-        font-size: 13px;
+        display: block;
+        color: #000;
     }
 
     .preset__clear {
 
         /*display: none;*/
+    }
+
+    .presets__default {
+
+        font-size: 13px;
+        position: absolute;
+        text-align: center;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: #7b7b7b;
+
+        a {
+
+            margin-top: 2px;
+            text-decoration: underline;
+            display: inline-block;
+            color: inherit;
+        }
+    }
+
+    .icon__preset {
+
+        width: 70px;
+        height: 70px;
+        padding: 15px;
+        border-radius: 50%;
+        background: #ededed;
+        fill: #fff;
+        display: inline-block;
+        margin: 0 auto 11px;
+
     }
 
 </style>
