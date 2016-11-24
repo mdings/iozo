@@ -11,7 +11,7 @@
             <svg class="icon__preset">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-preset"></use>
             </svg>
-            <div>There are no presets yet. <a href="javascript:void(0)" @click="addPreset">Let's create the first one</a></div>
+            <div>There are no presets yet. <a href="javascript:void(0)" @click="addPreset">Let's create the first one!</a></div>
         </div>
 
     </div>
@@ -138,7 +138,7 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        color: #7b7b7b;
+        color: #555;
 
         a {
 

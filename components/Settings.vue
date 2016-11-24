@@ -41,7 +41,7 @@
         left: 0;
         right: 0;
         top: 48px;
-        background-color: blue;
+        background-color: #ededed;
         height: 100vh;
         z-index: 4;
         transition: transform 150ms ease-in-out;
