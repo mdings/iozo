@@ -1,8 +1,12 @@
 <template>
     <header>
 
-        <svg class="button__play" v-on:click="toggleVolume">
+        <svg class="button__play" v-on:click="toggleVolume" v-show="isMuted === true">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play"></use>
+        </svg>
+
+        <svg class="button__pause" v-on:click="toggleVolume" v-show="isMuted === false">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-pause"></use>
         </svg>
 
         <svg v-on:click="showSettings" class="button__settings" v-bind:class="{active: settingsActive}">
@@ -71,6 +75,7 @@
         height: 35px;
         fill: red;
     }
+
     .button__play {
 
         display: block;
@@ -80,7 +85,21 @@
         width: 35px;
         height: 35px;
         margin: 0 auto;
+        fill: #333;
 
+    }
+
+    .button__pause {
+
+        display: block;
+        background-color: #fff;
+        border-radius: 50%;
+        padding: 11px;
+        width: 35px;
+        height: 35px;
+        overflow: visible;
+        margin: 0 auto;
+        fill: #333;
     }
 
     .button__settings {
@@ -100,9 +119,5 @@
         }
     }
 
-    #icon-play {
-
-
-    }
 
 </style>
