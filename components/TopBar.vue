@@ -17,7 +17,8 @@
 
 <script>
 
-    import {Howler, Howl} from 'howler'
+    import slider from '../mixins/slider'
+    import Pizzicato from 'pizzicato'
 
     export default {
 
@@ -50,8 +51,7 @@
             toggleVolume() {
 
                 this.isMuted = !this.isMuted
-                Howler.mute(this.isMuted)
-
+                Pizzicato.volume = this.isMuted ? 0 : 1
             },
         }
     }

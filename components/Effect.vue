@@ -1,16 +1,14 @@
 <template>
     <div class="effect" v-on:click="toggleEffect" v-bind:class="{inactive:!isEnabled}">
         <span class="effect__label">{{effect.label}}</span>
-        <input type="range" v-on:input="setAmount" v-on:change="changeAmount" v-bind:id="effect.name" data-preset>
+        <input type="range" @change="changeAmount" v-bind:id="effect.name" data-preset>
     </div>
 </template>
 
 <script>
 
+    import Pizzicato from 'pizzicato'
     import slider from '../mixins/slider'
-    import { Howler } from 'howler'
-    import Tuna from 'tunajs'
-    import 'howler-plugin-effect-chain'
 
     export default {
 
@@ -20,7 +18,7 @@
 
         created() {
 
-            const tuna = new Tuna(Howler.ctx)
+            // const tuna = new Tuna(Howler.ctx)
             // const chorus = new tuna.Chorus({})
 
             // Howler.addEffect(chorus)
@@ -42,18 +40,8 @@
 
             },
 
-            fadeto() {
-
-            },
-
             changeAmount() {
-
-
-            },
-
-            setAmount() {
-
-
+                
             }
         }
 

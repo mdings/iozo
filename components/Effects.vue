@@ -6,6 +6,7 @@
 
 <script>
 
+    import Pizzicato from 'pizzicato'
     import Effect from './Effect.vue'
 
     export default {
@@ -15,31 +16,29 @@
             return {
 
                 name: 'effects',
-                effects: [
-                    {
-                        name: 'Chorus',
-                        label: 'Chorus',
-                        settings: {
-                            rate: 1.5,
-                            feedback: 0.2,
-                            delay: 0.0045,
-                            bypass: 0
-                        }
-                    },
-                    {
-                        name: 'Delay',
-                        label: 'Delay',
-                        settings: {
-                            feedback: 0.45,
-                            delayTime: 150,
-                            wetLevel: 0.25,
-                            dryLevel: 1,
-                            cutoff: 2000,
-                            bypass: 0
-                        }
-                    }
-                ]
+                effects: []
             }
+        },
+
+        created() {
+
+            const tremolo = new Pizzicato.Effects.RingModulator({
+                time: 0.45,
+    speed: 0.2,
+    depth: 0.1,
+    feedback: 0.1,
+    mix: 0.5
+            });
+
+            var input = Pizzicato.masterGainNode;
+            var output = Pizzicato.context.createGain();
+            input.connect(tremolo);
+            tremolo.connect(output);
+
+
+            console.log(Pizzicato)
+            console.log(input)
+            console.log(output)
         },
 
         components: {

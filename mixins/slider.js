@@ -51,9 +51,11 @@ const slider = {
             this.$root.$on(`update-slider-${this.elm.id}`, (range) => {
 
                 this.isEnabled = range.isEnabled
-                
-                this.fadeto(null, range.value/100)
 
+                // sound update                
+                this.slide(null, range.value/100)
+
+                // visual update
                 this.elm
                     .rangeSlider
                     .update({

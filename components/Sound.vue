@@ -8,13 +8,14 @@
 <script>
 
     import slider from '../mixins/slider'
-    import {Howler,Howl} from 'howler'
+    import Pizzicato from 'pizzicato'
 
     export default {
 
         mixins: [slider],
 
         props: ['sound'],
+
 
         data() {
 
@@ -26,28 +27,30 @@
 
         created() {
 
-            this.track = new Howl({
+            this.track = new Pizzicato.Sound({
+                source: 'file',
+                options: {
+                    path: `sounds/${this.sound.url}`,
+                    loop: true,
+                    attack: .5,
+                    release: .5,
+                    volume: 0.5
+                }
+            }, () => {
 
-                src: [`sounds/${this.sound.url}`],
-                loop: true
+                // this.track.play()
             })
-
-            this.track.play()
 
 
             this.$watch('isEnabled', () => {
 
-                const slider = this.$el.querySelector('input[type="range"]')
-
                 if(this.isEnabled === false) {
 
-                    // fade the volume out
-                    this.track.fade(this.track.volume(), 0, 600)
+                    this.track.pause()
 
                 } else {
 
-                    // fade the volume in
-                    this.track.fade(0, slider.value/100, 600)
+                    this.track.play()
                 }
             })
         },
@@ -58,15 +61,7 @@
 
                 if (this.isEnabled) {
 
-                    this.track.volume(val)
-                }
-            },
-
-            fadeto(pos, val) {
-
-                if (this.isEnabled) {
-
-                    this.track.fade(this.track.volume(), val, 600)
+                    this.track.volume = val
                 }
             },
 
