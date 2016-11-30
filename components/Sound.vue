@@ -8,7 +8,7 @@
 <script>
 
     import slider from '../mixins/slider'
-    import {Howler,Howl} from 'howler'
+    import { Howler, Howl } from 'howler'
 
     export default {
 

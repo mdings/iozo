@@ -1,0 +1,36 @@
+{
+    "Compressor": {
+        "isVisible": false,
+        "_": "Compressor",
+        "label": "Compressor",
+        "params": {
+            "threshold": -1,
+            "makeupGain": 1,
+            "attack": 1,
+            "release": 0,
+            "ratio": 4,
+            "knee": 5,
+            "automakeup": true,
+            "bypass": 0
+        }
+    },
+    "Tremolo": {
+        "isVisible": true,
+        "_": "Tremolo",
+        "label": "Pulsate",
+        "params": {
+            "intensity": 0.3,
+            "rate": 4,
+            "stereoPhase": 0,
+            "bypass": 0
+        }
+    },
+    "Panner": {
+        "isVisible": true,
+        "_": "Panner",
+        "label": "Panner",
+        "params": {
+            "pan": 0
+        }
+    }
+}

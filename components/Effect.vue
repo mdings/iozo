@@ -8,7 +8,6 @@
 <script>
 
     import slider from '../mixins/slider'
-    import { Howler } from 'howler'
     import Tuna from 'tunajs'
     import 'howler-plugin-effect-chain'
 
@@ -21,9 +20,9 @@
         created() {
 
             const tuna = new Tuna(Howler.ctx)
-            // const chorus = new tuna.Chorus({})
+            const effect = new tuna[this.effect._](this.effect.params);
 
-            // Howler.addEffect(chorus)
+            Howler.addEffect(effect)
         },
 
         methods: {
