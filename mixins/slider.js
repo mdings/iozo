@@ -8,7 +8,7 @@ const slider = {
 
             elm: null,
             hasChanged: false,
-            isEnabled: true
+            isEnabled: false
         }
     },
 
