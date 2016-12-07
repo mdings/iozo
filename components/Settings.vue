@@ -1,5 +1,9 @@
 <template>
     <div id="settings" v-bind:class="{visible: isVisible}">
+        <div class="volume">
+            <span class="sound__label">Master volume</span>
+            <input type="range">
+        </div>
         <ul>
             <li>Master volume</li>
             <li>Start on login</li>
@@ -12,7 +16,11 @@
 
 <script>
 
-   export default {
+    import slider from '../mixins/slider'
+
+    export default {
+
+       mixins: [slider],
 
        created() {
 
@@ -28,6 +36,14 @@
 
                isVisible: false
            }
+       },
+
+       methods: {
+
+           slide(value) {
+
+               Howler.volume(value/100)
+           }
        }
    }
 
@@ -40,6 +56,7 @@
         position: fixed;
         left: 0;
         right: 0;
+        padding: 8px;
         top: 48px;
         background-color: #ededed;
         height: 100vh;
