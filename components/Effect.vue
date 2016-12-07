@@ -1,7 +1,7 @@
 <template>
     <div class="effect" v-on:click="toggleEffect" v-bind:class="{inactive:!isEnabled}">
         <span class="effect__label">{{effect.label}}</span>
-        <input type="range" v-on:input="setAmount" v-on:change="changeAmount" v-bind:id="effect.name" data-preset>
+        <input type="range" v-on:input="setAmount" v-on:change="changeAmount" v-bind:id="effect.id" data-preset data-is-disabled>
     </div>
 </template>
 
@@ -17,12 +17,23 @@
 
         props: ['effect'],
 
+        data() {
+
+            return {
+
+                effectLayer: null,
+                isAttached: false
+            }
+        },
+
         created() {
 
             const tuna = new Tuna(Howler.ctx)
-            const effect = new tuna[this.effect._](this.effect.params);
+            this.effectLayer = new tuna[this.effect._](this.effect.params);
 
-            Howler.addEffect(effect)
+            this.attachOrRemove()
+
+            this.$watch('isEnabled', this.attachOrRemove)
         },
 
         methods: {
@@ -39,6 +50,23 @@
 
             slide() {
 
+            },
+
+            attachOrRemove() {
+
+                if (this.isEnabled) {
+
+                    this.isAttached = true
+                    Howler.addEffect(this.effectLayer)
+
+                } else {
+
+                    if (this.isAttached) {
+
+                        this.isAttached = false
+                        Howler.removeEffect(this.effectLayer)
+                    }
+                }
             },
 
             fadeto() {

@@ -1,5 +1,6 @@
 {
     "Compressor": {
+        "id": "BQ8IDQgJCwI",
         "isVisible": false,
         "_": "Compressor",
         "label": "Compressor",
@@ -14,18 +15,46 @@
             "bypass": 0
         }
     },
-    "Tremolo": {
+    "Long Tremolo": {
+        "id": "DwABAQgOCgw",
         "isVisible": true,
         "_": "Tremolo",
-        "label": "Pulsate",
+        "label": "Tremolo (Long)",
         "params": {
-            "intensity": 0.3,
-            "rate": 4,
-            "stereoPhase": 0,
+            "intensity": 0.5,
+            "rate": 0.5,
+            "stereoPhase": 60,
+            "bypass": 0
+        }
+    },
+    "Short Tremolo": {
+        "id": "DwINAA4HAQ4",
+        "isVisible": true,
+        "_": "Tremolo",
+        "label": "Tremolo (Short)",
+        "params": {
+            "intensity": 0.5,
+            "rate": 8,
+            "stereoPhase": 60,
+            "bypass": 0
+        }
+    },
+    "Phaser": {
+        "id": "BQYKCAMEAAo",
+        "isVisible": true,
+        "_": "Phaser",
+        "label": "Phaser",
+        "params": {
+            "rate": 1.2,
+            "depth": 0.3,
+            "feedback": 0.2,
+            "stereoPhase": 30,
+            "baseModulationFrequency": 700,
             "bypass": 0
         }
     },
     "Panner": {
+        "id": "BwQAAggEBwI",
         "isVisible": true,
         "_": "Panner",
         "label": "Panner",

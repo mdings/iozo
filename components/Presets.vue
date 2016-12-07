@@ -52,6 +52,9 @@
                 // get the values from the range sliders
                 ranges.forEach((range) => {
 
+                    console.log(range.previousSibling.previousSibling.innerText)
+
+                    console.log(!range.hasAttribute('data-is-disabled'))
                     preset['sliders'][range.id] = {
 
                         value: range.value,
@@ -61,9 +64,6 @@
 
                 this.presets.push(preset)
                 storage.set('presets', this.presets)
-
-                console.log(preset)
-
             },
 
             clearPresets() {

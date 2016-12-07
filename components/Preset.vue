@@ -69,8 +69,11 @@
 
             loadPreset() {
 
-                if (this.isEditable) this.isEditable = false
+                if (this.isEditable) {
 
+                    this.isEditable = false
+                }
+                    
                 const sliders = this.preset.sliders
 
                 Object.keys(sliders).forEach((preset) => {

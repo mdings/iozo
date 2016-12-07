@@ -1,7 +1,7 @@
 <template>
     <div class="sound" v-on:click="toggleSound" v-bind:class="{inactive:!isEnabled}">
         <span class="sound__label">{{sound.label}}</span>
-        <input type="range" v-bind:id="sound.name" data-preset @change="changeVolume">
+        <input type="range" v-bind:id="sound.id" @change="changeVolume" data-preset data-is-disabled>
     </div>
 </template>
 
@@ -28,13 +28,13 @@
 
             this.track = new Howl({
 
+                volume: 0,
                 src: [`sounds/${this.sound.url}`],
                 loop: true
             })
 
             this.track.play()
-
-
+            
             this.$watch('isEnabled', () => {
 
                 const slider = this.$el.querySelector('input[type="range"]')
@@ -42,12 +42,12 @@
                 if(this.isEnabled === false) {
 
                     // fade the volume out
-                    this.track.fade(this.track.volume(), 0, 600)
+                    this.track.fade(this.track.volume(), 0, 1000)
 
                 } else {
 
                     // fade the volume in
-                    this.track.fade(0, slider.value/100, 600)
+                    this.track.fade(this.track.volume(), slider.value/100, 1000)
                 }
             })
         },
