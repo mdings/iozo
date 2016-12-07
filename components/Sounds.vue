@@ -15,29 +15,18 @@
             return {
 
                 name: 'sounds',
-                sounds: [
-                    {
-                        name: 'Ocean',
-                        label: 'Ocean',
-                        url: 'ocean.mp3'
-                    },
-                    {
-                        name: 'Park',
-                        label: 'Park',
-                        url: 'park.mp3'
-                    },
-                    {
-                        name: 'Rain',
-                        label: 'Rain',
-                        url: 'rain.mp3'
-                    }
-                ]
+                sounds: []
             }
         },
 
         components: {
 
             Sound
+        },
+
+        created() {
+
+            this.sounds = require("json-loader!../sounds.json");
         }
 
     }
