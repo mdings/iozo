@@ -1,5 +1,5 @@
 <template>
-    <div class="effect" v-on:click="toggleEffect" v-bind:class="{inactive:!isEnabled}">
+    <div class="effect" v-on:click="toggleEffect" v-bind:class="{inactive:!isEnabled}" v-show="effect.isVisible">
         <span class="effect__label">{{effect.label}}</span>
         <input type="range" v-on:input="setAmount" v-on:change="changeAmount" v-bind:id="effect.id" data-preset data-is-disabled>
     </div>
@@ -29,10 +29,9 @@
         created() {
 
             const tuna = new Tuna(Howler.ctx)
+
             this.effectLayer = new tuna[this.effect._](this.effect.params);
-
             this.attachOrRemove()
-
             this.$watch('isEnabled', this.attachOrRemove)
         },
 
